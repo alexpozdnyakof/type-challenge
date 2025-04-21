@@ -31,7 +31,7 @@
 
 /* _____________ Your Code Here _____________ */
 
-type MyPick<T, K> = any
+type MyPick<T, K extends keyof T> = { [V in K]: V extends keyof T ? T[V] : never }
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
@@ -64,3 +64,4 @@ interface Expected2 {
   > View solutions: https://tsch.js.org/4/solutions
   > More Challenges: https://tsch.js.org
 */
+
